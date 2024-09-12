@@ -1,7 +1,8 @@
 # AutoDCM
 Code for methods in the paper: AutoDCM A Novel Framework for Automatic Relation Extraction Dataset Construction via Distant Supervision and Large Language Models for Low-Resource Tasks
+
 ## The AutoDCM Framework
-![AutoDCM](https://github.com/qi-github-ui/AutoDCM/assets/73466589/45714247-2415-4afe-b43a-d3c7093077d6)
+![AutoDCM](https://github.com/user-attachments/assets/cb1a04a9-289f-496d-958a-8260852e1747)
 >This framework automates the extraction of open triples from unstructured text using ChatGPT, hypothesizing their alignment with corresponding entities and relations within a knowledge base. Heuristic methods, reinforced by BERT-based semantic validation, are then applied to assess the veracity of these triples. The >integration of Tongyici Cilin facilitates the ultimate semantic disambiguation, certifying the accurate reflection of the knowledge base's entity relationships.
 
 
