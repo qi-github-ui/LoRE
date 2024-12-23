@@ -1,8 +1,8 @@
-# AutoDCM
-Code for methods in the paper: AutoDCM A Novel Framework for Automatic Relation Extraction Dataset Construction via Distant Supervision and Large Language Models for Low-Resource Tasks
+# LoRE
+Code for methods in the paper: LoRE: A Framework for Low-Resource Relation Extraction via Distant Supervision and Large Language Models
 
-## The AutoDCM Framework
-![AutoDCM](https://github.com/user-attachments/assets/cb1a04a9-289f-496d-958a-8260852e1747)
+## The LoRE Framework
+![LoRE](https://github.com/user-attachments/assets/cb1a04a9-289f-496d-958a-8260852e1747)
 >This framework automates the extraction of open triples from unstructured text using ChatGPT, hypothesizing their alignment with corresponding entities and relations within a knowledge base. Heuristic methods, reinforced by BERT-based semantic validation, are then applied to assess the veracity of these triples. The >integration of Tongyici Cilin facilitates the ultimate semantic disambiguation, certifying the accurate reflection of the knowledge base's entity relationships.
 
 
@@ -22,7 +22,7 @@ Code for methods in the paper: AutoDCM A Novel Framework for Automatic Relation 
 ## Framework
 
 1. ***Freebase***
->Freebase plays a crucial role in the AutoDCM framework as a comprehensive knowledge base. It provides structured information that assists in aligning extracted triples with existing entities and relationships. >For more information about how Freebase is utilized within AutoDCM, refer to the section 'Constructing the Knowledge Base for Enhanced RE' in our paper.
+>Freebase plays a crucial role in the LoRE framework as a comprehensive knowledge base. It provides structured information that assists in aligning extracted triples with existing entities and relationships. >For more information about how Freebase is utilized within LoRE, refer to the section 'Constructing the Knowledge Base for Enhanced RE' in our paper.
 
 >The knowledge base used in our paper is located in the `src/freebase/PersonGraphDataSet-master` directory. For more details about this dataset, visit [PersonRelationKnowledgeGraph on GitHub]>(https://github.com/liuhuanyong/PersonRelationKnowledgeGraph).
 
@@ -48,14 +48,14 @@ Code for methods in the paper: AutoDCM A Novel Framework for Automatic Relation 
   * The output CSV file format includes columns for Extracted Entity1, Extracted Entity2, Extracted Non-Entity Content, and the Original Text.
 
 4. ***Heuristic Entity and Relationship Alignment***
->This stage of the AutoDCM framework involves aligning the extracted entities and relationships with the known entities and relationships from the Freebase >knowledge base. It uses a combination of heuristic methods to enhance the accuracy of alignment.
+>This stage of the LoRE framework involves aligning the extracted entities and relationships with the known entities and relationships from the Freebase >knowledge base. It uses a combination of heuristic methods to enhance the accuracy of alignment.
 * `src/ER_Alignment.py`
 * Processes the data to align the extracted information with the Freebase dataset.
 * These similarity scores are then normalized and integrated into the alignment process to refine the matching accuracy.
 * The results are saved in a new CSV file, which includes the original extracted information along with the calculated distance and similarity scores, providing a comprehensive view of the entity and relationship alignment.
    
 5. ***Semantic Disambiguation***
->The Semantic Disambiguation stage in the AutoDCM framework is vital for determining the veracity and relevance of the extracted entity-relationship pairs. This >stage involves assessing the context and semantic content of the relationships extracted, enhancing the precision of the dataset construction.
+>The Semantic Disambiguation stage in the LoRE framework is vital for determining the veracity and relevance of the extracted entity-relationship pairs. This >stage involves assessing the context and semantic content of the relationships extracted, enhancing the precision of the dataset construction.
 * `src/semantic_disambiguation.py`
 * The script then utilizes the TongYiCi CiLin for Chinese semantic analysis or a similar semantic database for other languages, to determine the semantic proximity between the extracted content and the predefined relationships.
 * Each row in the dataset is labeled as 'Positive' or 'Negative' based on the semantic similarity assessment. A 'Positive' label indicates a high degree of semantic alignment with the known relationships in the Freebase knowledge base, while a 'Negative' label suggests a lack of such alignment.
